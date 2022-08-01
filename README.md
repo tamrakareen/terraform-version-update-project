@@ -21,11 +21,31 @@ Upgrading an old version of terraform
 
 ✍️ Alright, I'm upgrading from 0.11.15 and following Terraform's instructions for v0.12. I'll then do it again for v0.13. 
 
+
+### Step 1 — Change the .terraform-version file
+
+Change the current version to 0.12.1 (just change the existing text) and run Terraform init. You'll likely get errors:
+
+Error: Invalid output name
+│
+│   on outputs.tf line 2, in output "subnet.land-west-priv.*.sn_id":        
+│    2: output "subnet.land-west-priv.*.sn_id" {
+│
+│ A name must start with a letter or underscore and may contain only        
+│ letters, digits, underscores, and dashes.
+
+and...
+
+Error: Invalid expression
+│
+│ On variables.tf line 31: Expected the start of an expression, but found an invalid
+│ expression token.
+
+You'll go through each error and correct. I use VScode so my code is a different color if it's not correct which makes it easy to find where syntax needs updating. Continue fixes until you are able to successfully run Terraform init.
+
+Last errors had to do with upgrading the AWS version and getting my AWS credentials set up in the non sandbox account. 
+
 updated 8/1, to be continued...
-
-### Step 1 — Summary of Step
-
-![Screenshot](https://via.placeholder.com/500x300)
 
 ### Step 1 — Summary of Step
 
